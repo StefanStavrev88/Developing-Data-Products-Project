@@ -1,0 +1,58 @@
+Developing Data Products - Project Presentation
+===
+author: Stefan Stavrev
+date: 21.04.2015
+
+Introduction
+===
+
+- We want to help U.S. patients select the best hospital for a certain condition.
+- Our application is extremely easy to use.
+- The patient can choose a state and a condition from a list, and then simply press a button.
+- Our data comes from a reliable source which makes our application reliable also.
+- We are constantly updating our data, so that patients can always know which hospital is the best at the current point in time, for a certain condition.
+
+Data
+===
+
+- The conditions/outcomes are: heart attack, heart failure and pneumonia.
+- We look forward to expand in near future and add more outcomes.
+- Our data comes from the Hospital Compare web site (http://hospitalcompare.hhs.gov)
+run by the U.S. Department of Health and Human Services.
+- The purpose of the web site is to provide data and information about the quality of care at over 4,000 Medicare-certified hospitals in the U.S. This dataset essentially covers all major U.S. hospitals.
+
+Examples
+===
+
+
+```r
+source("best.R")
+data <- read.csv("data/outcome-of-care-measures.csv", colClasses = "character")
+data <- data[ ,c(2,7,11,17,23)]
+```
+
+
+```r
+best("TX", "heart attack", data)
+```
+
+```
+[1] "CYPRESS FAIRBANKS MEDICAL CENTER"
+```
+
+```r
+best("TX", "heart failure", data)
+```
+
+```
+[1] "FORT DUNCAN MEDICAL CENTER"
+```
+
+Our Future Goals
+===
+
+- Keep our data updated.
+- Add more outcomes to attract more patients.
+- Promote our application through various mediums.
+- Search for investors and then hire more engineers and data analysts.
+- Use the data from the government to do our own data analysis, and provide the patients with more information and help them choose an appropriate hospital. 
